@@ -19,9 +19,9 @@ tags:
 </style>
 
 
-While studying for an exam on statistical inference I became interested in the following question: **when is the maximum‑likelihood estimator (MLE) for the natural parameter of an exponential family asymptotically efficient?** After crawling through forums and textbooks I became certain that the answer was almost always. But I could not find a straightforward theorem or result to use. Or at least not one with a proof. So I set out to prove such a result for myself. The result of my toils is [Theorem 3](#theorem-3) below. Surprisingly, if you ask ChatGPT for a theorem on this topic it will give you one similar to Theorem 3. However, it cannot provide an accurate reference for it. So this theorem likely exists somewhere on the internet I was just unable to find it.   
+While studying for an exam on statistical inference I became interested in the following question: **when is the maximum‑likelihood estimator (MLE) for the natural parameter of an exponential family asymptotically efficient?** After crawling through forums and textbooks I became certain that the answer was almost always. But I could not find a straightforward theorem or result to use. Or at least not one with a proof. So I set out to prove such a result for myself. The result of my toils is [Theorem 3](#theorem-3) below. Surprisingly, if you ask ChatGPT for a theorem on this topic it will give you one similar to Theorem 3. However, it cannot provide an accurate reference for it. So this theorem likely exists somewhere on the internet, I was just unable to find it.   
 
-The reasoning I provide in this post will not be the most concise. Instead I hope to provide an intuitive story that aligns more closely with my journey through the proof.
+The reasoning I provide in this post will not be the most concise. Instead I hope to provide an intuitive story that aligns more closely with my journey to the proof.
 
 ## 1. Exponential families
 
@@ -359,7 +359,7 @@ Using this we can prove Theorem 3.
 
 *Proof of Theorem 3.*
 
-Proceed exactly as in our naive proof attempt to derive the likelihood equation  
+Proceed exactly as in our naive proof attempt and derive the likelihood equation  
 
 $$
 \nabla A(\eta)=\overline T_n \tag{4.1}
@@ -372,7 +372,7 @@ This time we know that $$\nabla A(\eta)$$ exists for all $$\eta \in \Xi^\circ$$ 
 Then on the event $$\{\overline T_n\in V\}$$ define  
 
 $$
-\hat\eta_n := \psi^{-1}(\overline T_n). \tag{4.2}
+\hat\eta_n := \psi^{-1}(\overline T_n).
 $$
 
 If $$\overline T_n\notin V$$, set $$\hat\eta_n$$ arbitrarily. Conditional on $$\{\overline T_n\in V\}$$ we have the multivariate CLT  
@@ -391,7 +391,7 @@ Computing the Fisher information matrix we find that $$I(\eta_0) = \mathbb{E}[-\
 <br>
 <br>
 
-By the law of large numbers we have that $$\overline T_n\xrightarrow{p} \mathbb{E}_{\eta_0}[T(X)] = \psi(\eta_0)$$. Since $$V$$ is an open neighborhood of $$\psi(\eta_0)$$ we have that $$\mathbb{P}(\overline T_n\in V)\to1$$. Then by Slutsky’s theorem, the convergence holds unconditionally. 
+By the law of large numbers we have that $$\overline T_n\xrightarrow{p} \mathbb{E}_{\eta_0}[T(X)] = \psi(\eta_0)$$. Since $$V$$ is an open neighborhood of $$\psi(\eta_0)$$ we have that $$\mathbb{P}(\overline T_n\in V)\to1$$, implying that the convergence holds unconditionally. 
 
 </div>
 
