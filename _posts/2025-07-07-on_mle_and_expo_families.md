@@ -378,7 +378,7 @@ $$
 If $$\overline T_n\notin V$$, set $$\hat\eta_n$$ arbitrarily. Conditional on $$\{\overline T_n\in V\}$$ we have the multivariate CLT  
 
 $$
-\sqrt{n}\bigl(\overline T_n-\psi(\eta_0)\bigr)\xrightarrow{d}\mathcal{N}\!\bigl(0,\;\nabla^2 A(\eta_0)\bigr),
+\sqrt{n}\bigl(\overline T_n-\psi(\eta_0)\bigr)\xrightarrow{d}\mathcal{N}\!\bigl(0,\;\nabla^2 A(\eta_0)\bigr).
 $$
 
 Moreover since $$\psi^{-1}$$ is differentiable at $$\eta_0$$ we can apply the delta method. Since $$\nabla \psi^{-1}(\psi(\eta_0))=(\nabla \psi(\eta_0))^{-1} =(\nabla^2 A(\eta_0))^{-1}$$, we obtain  
