@@ -339,7 +339,7 @@ with $$\hat{\eta}_n$$ defined arbitrarily when the argmax is empty. Then, the ML
 $$
 \sqrt{n}(\hat{\eta}_n - \eta_0)
 \;\xrightarrow{d}\;
-\mathcal{N}\left(0,\, I^{-1}(\eta_0)\right),
+\mathcal{N}\left(0,\, I^{-1}(\eta_0)\right).
 $$
 
 </div>
@@ -362,36 +362,36 @@ Using this we can prove Theorem 3.
 Proceed exactly as in our naive proof attempt and derive the likelihood equation  
 
 $$
-\nabla A(\eta)=\overline T_n \tag{4.1}
+\nabla A(\eta)=\overline T_n. \tag{4.1}
 $$
 
-This time we know that $$\nabla A(\eta)$$ exists for all $$\eta \in \Xi^\circ$$ and that any solution to (4.1)  in $$\Xi^\circ$$ is the unique maximiser of $$\ell_n$$. Let $$\psi:=\nabla A.$$ Minimality implies that the Jacobian matrix $$\nabla \psi = \nabla^2 A(\eta_0)$$ is positive-definite, so $$\nabla \psi(\eta_0)$$ is non-singular. By the inverse function theorem there are neighbourhoods $$U\subset\Xi^\circ$$ of $$\eta_0$$ and $$V\subset\mathbb{R}^s$$ of $$\psi(\eta_0)$$ such that  $$\psi:U\rightarrow V$$ is a $$C^1$$ diffeomorphism with inverse $$\psi^{-1}$$.
+This time we know that $$\nabla A(\eta)$$ exists for all $$\eta \in \Xi^\circ$$ and that any solution to (4.1)  in $$\Xi^\circ$$ is the unique maximiser of $$\ell_n$$. Let $$\psi:=\nabla A.$$ Minimality implies that the Jacobian matrix $$\nabla \psi = \nabla^2 A(\eta_0)$$ is positive-definite, so $$\nabla \psi(\eta_0)$$ is non-singular. Then by the inverse function theorem there are open neighbourhoods $$U\subset\Xi^\circ$$ of $$\eta_0$$ and $$V\subset\mathbb{R}^s$$ of $$\psi(\eta_0)$$ such that  $$\psi:U\rightarrow V$$ is a $$C^1$$ diffeomorphism with inverse $$\psi^{-1}$$.
 <br>
 <br>
 
-Then on the event $$\{\overline T_n\in V\}$$ define  
+Then conditional on the event $$E := \{\overline T_n\in V\}$$ define  
 
 $$
 \hat\eta_n := \psi^{-1}(\overline T_n).
 $$
 
-If $$\overline T_n\notin V$$, set $$\hat\eta_n$$ arbitrarily. Conditional on $$\{\overline T_n\in V\}$$ we have the multivariate CLT  
+If $$\overline T_n\notin V$$, set $$\hat\eta_n$$ arbitrarily. From the multivariate CLT we have that
 
 $$
 \sqrt{n}\bigl(\overline T_n-\psi(\eta_0)\bigr)\xrightarrow{d}\mathcal{N}\!\bigl(0,\;\nabla^2 A(\eta_0)\bigr).
 $$
 
-Moreover since $$\psi^{-1}$$ is differentiable at $$\eta_0$$ we can apply the delta method. Since $$\nabla \psi^{-1}(\psi(\eta_0))=(\nabla \psi(\eta_0))^{-1} =(\nabla^2 A(\eta_0))^{-1}$$, we obtain  
+Now conditional on $$E$$, $$\psi^{-1}$$ is differentiable at $$\eta_0$$ and we can apply the delta method. Since $$\nabla \psi^{-1}(\psi(\eta_0))=(\nabla \psi(\eta_0))^{-1} =(\nabla^2 A(\eta_0))^{-1}$$, we obtain  
 
 $$
 \sqrt{n}(\hat\eta_n-\eta_0)\xrightarrow{d}\mathcal{N}\!\bigl(0,\; (\nabla^2 A(\eta_0))^{-1}\bigr).
 $$
 
-Computing the Fisher information matrix we find that $$I(\eta_0) = \mathbb{E}[-\nabla^2 \log p_{\eta_0}(x)] = \mathbb{E}[\nabla^2 A(\eta_0)] = \nabla^2 A(\eta_0)$$. So conditional on the event $$\{\overline T_n\in V\}$$,  $$\hat\eta_n$$ is asymptotically efficient.
+Of course this is conditional on $$E$$. Computing the Fisher information matrix we find that $$I(\eta_0) = \mathbb{E}[-\nabla^2 \log p_{\eta_0}(x)] = \mathbb{E}[\nabla^2 A(\eta_0)] = \nabla^2 A(\eta_0)$$. So conditional on the event $$\{\overline T_n\in V\}$$,  $$\hat\eta_n$$ is asymptotically efficient.
 <br>
 <br>
 
-By the law of large numbers we have that $$\overline T_n\xrightarrow{p} \mathbb{E}_{\eta_0}[T(X)] = \psi(\eta_0)$$. Since $$V$$ is an open neighborhood of $$\psi(\eta_0)$$ we have that $$\mathbb{P}(\overline T_n\in V)\to1$$, implying that the convergence holds unconditionally. 
+By the law of large numbers we have that $$\overline T_n\xrightarrow{p} \mathbb{E}_{\eta_0}[T(X)] = \psi(\eta_0)$$. Since $$V$$ is an open neighborhood of $$\psi(\eta_0)$$ we have that $$\mathbb{P}(E) = \mathbb{P}(\overline T_n\in V)\to1$$, implying that the convergence holds unconditionally. 
 
 </div>
 
