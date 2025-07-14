@@ -154,7 +154,7 @@ $$
 }
 $$ 
 
-Why isn't this is a rigourous proof? The answer is that there are several hidden assumptions we have used including:
+Why isn't this is a rigorous proof? The answer is that there are several hidden assumptions we have used including:
 
 * Any critical point of $$\ell_n(\eta)$$ is a global maximizer.
 * $$A(\eta)$$ is twice differentiable.
@@ -205,13 +205,13 @@ $$
 = \phi(\eta_0) \cdot M_Z(\delta),
 $$ 
 
-where $$Z := T(X)$$ and $$M_Z(\delta)$$ is the moment-generating function of $$Z$$ under $$Q_{\eta_0}$$. Now we are in position to apply Theorem 2. Since $$\eta_0 \in \Xi^\circ$$, and $$\Xi^\circ$$ is open, there exists a neighbourhood of $$0$$ around $$\delta = 0$$ on which $$M_Z(\delta) = \phi(\eta_0 + \delta) < \infty$$. Then by Theorem 2, $$M_Z$$ is infinitely differentiable at $$\eta_0$$. Since
+where $$Z := T(X)$$ and $$M_Z(\delta)$$ is the moment-generating function of $$Z$$ under $$Q_{\eta_0}$$. Now we are in position to apply Theorem 2. Since $$\eta_0 \in \Xi^\circ$$, and $$\Xi^\circ$$ is open, there exists a neighborhood of $$0$$ around $$\delta = 0$$ on which $$M_Z(\delta) = \phi(\eta_0 + \delta) < \infty$$. Then by Theorem 2, $$M_Z$$ is infinitely differentiable at $$\eta_0$$. Since
 
 $$
 A(\eta) = \log \phi(\eta) = \log \phi(\eta_0) + \log M_Z(\delta),
 $$ 
 
-which is the sum of two $$C^\infty$$ functions in a neighbourhood of $$\eta_0$$ we can conclude that $$A$$ is $$C^\infty$$ in this neighbourhood. Since $$\eta_0 \in \Xi^\circ$$ was arbitrary, we conclude $$A \in C^\infty(\Xi^\circ).$$ 
+which is the sum of two $$C^\infty$$ functions in a neighborhood of $$\eta_0$$ we can conclude that $$A$$ is $$C^\infty$$ in this neighborhood. Since $$\eta_0 \in \Xi^\circ$$ was arbitrary, we conclude $$A \in C^\infty(\Xi^\circ).$$ 
 
 </div>
 
@@ -298,7 +298,7 @@ v^\top \nabla^2_\eta A(\eta)\, v = \operatorname{Var}_\eta\left( v^\top T(X) \ri
 \quad \text{for all nonzero } v.
 $$
 
-That is, the variance of every nontrivial linear combination of the sufficient statistic must be strictly positive under $$P_\eta$$. Equivalently, for all nonzero vectors $$v \in \mathbb{R}^s$$, the random variable $$v^\top T(X)$$ is **not almost surely constant** under any $$P_\eta$$. An exponential family that satisifies this is called **minimal**.
+That is, the variance of every nontrivial linear combination of the sufficient statistic must be strictly positive under $$P_\eta$$. Equivalently, for all nonzero vectors $$v \in \mathbb{R}^s$$, the random variable $$v^\top T(X)$$ is **not almost surely constant** under any $$P_\eta$$. An exponential family that satisfies this is called **minimal**.
 
 <div class="bbox" markdown="1">
 
@@ -349,7 +349,7 @@ The last theorem we'll need is the inverse function theorem.
 <div class="bbox" markdown="1">
 
 **Theorem 4 (Inverse Function Theorem).**  
-Let $$f:\mathbb{R}^s\to\mathbb{R}^s$$ be continuously differentiable on an open neighbourhood of a point $$\theta_0$$. If the Jacobian matrix of $$f$$ at this point  $$J_f(\theta_0)$$ is non-singular, then there exist open neighbourhoods $$\theta_0 \in \mathcal{O}_1$$ and $$f(\theta_0) \in \mathcal{O}_2$$ such that the restricted function $$f:\mathcal{O}_1\to\mathcal{O}_2$$ is continuously differentiable and invertible and its inverse $$f^{-1}:\mathcal{O}_2\to\mathcal{O}_1$$ is also continuously differentiable.
+Let $$f:\mathbb{R}^s\to\mathbb{R}^s$$ be continuously differentiable on an open neighborhood of a point $$\theta_0$$. If the Jacobian matrix of $$f$$ at $$\theta_0$$ (denoted by $$J_f(\theta_0)$$) is non-singular, then there exists open neighborhoods $$\theta_0 \in \mathcal{O}_1$$ and $$f(\theta_0) \in \mathcal{O}_2$$ such that the restricted function $$f:\mathcal{O}_1\to\mathcal{O}_2$$ is continuously differentiable and invertible and its inverse $$f^{-1}:\mathcal{O}_2\to\mathcal{O}_1$$ is also continuously differentiable.
 
 </div>
 <br>
@@ -365,33 +365,33 @@ $$
 \nabla_\eta A(\eta)=\overline T_n. 
 $$
 
-This time we know that $$\nabla_\eta A(\eta)$$ exists for all $$\eta \in \Xi^\circ$$ and that any solution to the likelihood equation in $$\Xi^\circ$$ is the unique maximiser of the log-likelihood $$\ell_n(\eta)$$. Let $$\psi:=\nabla A.$$ Minimality implies that the Jacobian matrix $$J_\psi(\eta_0) = \nabla^2_\eta A(\eta)|_{\eta=\eta_0}$$ is positive-definite, so $$J_\psi(\eta_0)$$ is non-singular. Then by the inverse function theorem there are open neighbourhoods $$\eta_0 \in \mathcal{O}_1 \subset\Xi^\circ$$ and $$\psi(\eta_0) \in \mathcal{O}_2$$ such that  $$\psi:\mathcal{O}_1\to\mathcal{O}_2$$ is continuously differentiable and invertible and its inverse $$\psi^{-1}:\mathcal{O}_2\to\mathcal{O}_1$$ is also continuously differentiable.
+This time we know that $$\nabla_\eta A(\eta)$$ exists for all $$\eta \in \Xi^\circ$$ and that any solution to the likelihood equation in $$\Xi^\circ$$ is the unique maximiser of the log-likelihood $$\ell_n(\eta)$$. Let $$\psi(\eta) := \nabla_\eta A(\eta).$$ Minimality implies that the Jacobian matrix $$J_\psi(\eta_0) = \nabla^2_\eta A(\eta)|_{\eta=\eta_0} = \operatorname{Var}_{\eta_0}[T(X)]$$ is positive-definite, so $$J_\psi(\eta_0)$$ is non-singular. Then by the inverse function theorem there are open neighborhoods $$\eta_0 \in \mathcal{O}_1 \subset\Xi^\circ$$ and $$\psi(\eta_0) \in \mathcal{O}_2$$ such that  $$\psi:\mathcal{O}_1\to\mathcal{O}_2$$ is invertible and its inverse $$\psi^{-1}:\mathcal{O}_2\to\mathcal{O}_1$$ is also continuously differentiable.
 <br>
 <br>
 
-Then for $$T_n\in \mathcal{O}_2$$ we have that  
+Then for $$\overline T_n\in \mathcal{O}_2$$ we have that  
 
 $$
 \hat\eta_n = \psi^{-1}(\overline T_n).
 $$
 
-If $$\overline T_n\notin \mathcal{O}_2$$, set $$\hat\eta_n$$ arbitrarily. From the multivariate CLT we have that
+From the multivariate CLT we have that
 
 $$
-\sqrt{n}\bigl(\overline T_n-\psi(\eta_0)\bigr)\xrightarrow{d}\mathcal{N}\!\bigl(0,\;\nabla^2_\eta A(\eta)|_{\eta=\eta_0}\bigr).
+\sqrt{n}\bigl(\overline T_n-\psi(\eta_0)\bigr)\xrightarrow{d}\mathcal{N}\!\bigl(0,\;J_\psi(\eta_0)\bigr).
 $$
 
-Since $$\psi^{-1}$$ is differentiable at $$\eta_0$$ and we can apply the delta method. Moreover, from multivariate calculus we have that $$J_{\psi^{-1}}(\psi(\eta_0))=(J_\psi(\eta_0))^{-1}$$. Combining these two facts implies that
+Since $$\psi^{-1}$$ is differentiable at $$\psi(\eta_0)$$ and we can apply the delta method. Moreover, from multivariate calculus we have that $$J_{\psi^{-1}}(\psi(\eta_0))=(J_\psi(\eta_0))^{-1}$$. Combining these two facts implies that
 
 $$
 \sqrt{n}(\psi^{-1}(\overline T_n)-\eta_0)\xrightarrow{d}\mathcal{N}\!\bigl(0,\; (J_\psi(\eta_0))^{-1}\bigr).
 $$
 
-Computing the Fisher information matrix we find that $$I(\eta_0) = \mathbb{E}[-\nabla_\eta^2 \log p_{\eta}(x)|_{\eta=\eta_0}] = \mathbb{E}[\nabla_\eta^2 A(\eta)|_{\eta=\eta_0}] = J_\psi(\eta_0)$$. This would be enough to finish the proof if we always had $$\overline T_n \in \mathcal{O}_2$$. Instead we have something slightly weaker. Since $$\mathcal{O}_2$$ is an open neighborhood of $$\psi(\eta_0) = \mathbb{E}_{\eta_0}[T(X)]$$, the law of large numbers implies that $$\mathbb{P}(\overline T_n\in \mathcal{O}_2)\to1$$. 
+Since the Fisher information matrix is $$I(\eta_0) = \mathbb{E}[-\nabla_\eta^2 \log p_{\eta}(x)|_{\eta=\eta_0}] = \mathbb{E}[\nabla_\eta^2 A(\eta)|_{\eta=\eta_0}] = J_\psi(\eta_0)$$ we are nearly done. This would be enough to finish the proof if we always had $$\overline T_n \in \mathcal{O}_2$$. Instead we have something slightly weaker. Since $$\mathcal{O}_2$$ is an open neighborhood of $$\psi(\eta_0) = \mathbb{E}_{\eta_0}[T(X)]$$, the law of large numbers implies that $$\mathbb{P}(\overline T_n\in \mathcal{O}_2)\to1$$. 
 <br>
 <br>
 
-To use this to finish the proof we let $$\mathbf{1}[A]$$ denotes the indicator of the event $$A$$. Since $$\mathbb{P}(\overline T_n\in \mathcal{O}_2)\to1$$ we have that,
+To use this to finish the proof we let $$\mathbf{1}[A]$$ denote the indicator function of the event $$A$$. Since $$\mathbb{P}(\overline T_n\in \mathcal{O}_2)\to1$$ we have that,
 
 $$
 \mathbf{1}[\overline T_n\in \mathcal{O}_2] \xrightarrow{p} 1
@@ -401,7 +401,7 @@ $$
 \sqrt{n}(\hat{\eta}_n-\eta_0) \mathbf{1}[\overline T_n \not\in \mathcal{O}_2] \xrightarrow{p} 0.
 $$
 
-Then the claim follows by applying Slutsky's to the following decomposition:
+Then the claim follows by applying Slutsky's theorem to the following decomposition:
 
 $$
 \sqrt{n}(\hat{\eta}_n-\eta_0) = 
