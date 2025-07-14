@@ -243,7 +243,7 @@ $$
 \mathbb{E}_{\eta_0}[T(X)]  
 &= \left. \nabla_z \log M_T(z) \right|_{z=0}
 = \left. \nabla_z A(\eta_0 + z) \right|_{z=0}
-= \nabla A(\eta_0),
+= \nabla_\eta A(\eta) |_{\eta=\eta_0},
 \end{aligned}
 $$
 
@@ -252,14 +252,14 @@ which shows that the gradient of the log-partition function is the mean of the s
 $$
 \operatorname{Var}_{\eta_0}[T(X)]
 = \left. \nabla_z^2 \log M_T(z) \right|_{z=0}
-= \nabla^2 A(\eta_0),
+= \nabla^2_\eta A(\eta)|_{\eta=\eta_0},
 $$
 
 Thus, the log-partition function $$A(\eta)$$ simultaneously encodes the first and second moments of the sufficient statistic through its gradient and Hessian:
 
 $$
-\nabla A(\eta_0) = \mathbb{E}_{\eta_0}[T(X)], \qquad
-\nabla^2 A(\eta_0) = \operatorname{Var}_{\eta_0}[T(X)].
+\nabla_\eta A(\eta) |_{\eta=\eta_0} = \mathbb{E}_{\eta_0}[T(X)], \qquad
+\nabla^2_\eta A(\eta)|_{\eta=\eta_0} = \operatorname{Var}_{\eta_0}[T(X)].
 $$
 
 <div class="bbox" markdown="1">
@@ -288,13 +288,13 @@ $$
 where $$\overline{T}_n$$ is the empirical mean of the sufficient statistic. We already know from the previous section that $$A$$ is twice differentiable, and that
 
 $$
-\nabla^2 A(\eta) = \operatorname{Var}_\eta[T(X)].
+\nabla^2_\eta A(\eta) = \operatorname{Var}_\eta[T(X)].
 $$
 
 This matrix is always positive semidefinite since it is a variance/covariance matrix. Hence, $$A(\eta)$$ is convex on $$\Xi^\circ$$. However, to guarantee that the log-likelihood has a unique global maximizer, we need a stronger property: strict convexity of $$A(\eta)$$. In particular, we want:
 
 $$
-v^\top \nabla^2 A(\eta)\, v = \operatorname{Var}_\eta\left( v^\top T(X) \right) > 0
+v^\top \nabla^2_\eta A(\eta)\, v = \operatorname{Var}_\eta\left( v^\top T(X) \right) > 0
 \quad \text{for all nonzero } v.
 $$
 
@@ -349,7 +349,7 @@ The last theorem we'll need is the inverse function theorem.
 <div class="bbox" markdown="1">
 
 **Theorem 4 (Inverse Function Theorem).**  
-Let $$f:\mathbb{R}^s\to\mathbb{R}^s$$ be continuously differentiable on an open neighbourhood of a point $$\theta_0$$. If the Jacobian matrix $$\nabla f(\theta_0)$$ is non-singular, then there exist open neighbourhoods $$\mathcal{V}\subset\mathbb{R}^s$$ of $$\theta_0$$ and $$\mathcal{W}\subset\mathbb{R}^s$$ of $$f(\theta_0)$$ such that $$f:\mathcal{V}\to\mathcal{W}$$ is a $$C^1$$ bijection and its inverse $$f^{-1}:\mathcal{W}\to\mathcal{V}$$ is also $$C^1$$.
+Let $$f:\mathbb{R}^s\to\mathbb{R}^s$$ be continuously differentiable on an open neighbourhood of a point $$\theta_0$$. If the Jacobian matrix of $$f$$ at this point  $$J_f(\theta_0)$$ is non-singular, then there exist open neighbourhoods $$\theta_0 \in \mathcal{O}_1$$ and $$f(\theta_0) \in \mathcal{O}_2$$ such that the restricted function $$f:\mathcal{O}_1\to\mathcal{O}_2$$ is continuously differentiable and invertible and its inverse $$f^{-1}:\mathcal{O}_2\to\mathcal{O}_1$$ is also continuously differentiable.
 
 </div>
 <br>
@@ -362,36 +362,51 @@ Using this we can prove Theorem 3.
 Proceed exactly as in our naive proof attempt and derive the likelihood equation  
 
 $$
-\nabla A(\eta)=\overline T_n. \tag{4.1}
+\nabla_\eta A(\eta)=\overline T_n. 
 $$
 
-This time we know that $$\nabla A(\eta)$$ exists for all $$\eta \in \Xi^\circ$$ and that any solution to (4.1)  in $$\Xi^\circ$$ is the unique maximiser of $$\ell_n$$. Let $$\psi:=\nabla A.$$ Minimality implies that the Jacobian matrix $$\nabla \psi = \nabla^2 A(\eta_0)$$ is positive-definite, so $$\nabla \psi(\eta_0)$$ is non-singular. Then by the inverse function theorem there are open neighbourhoods $$U\subset\Xi^\circ$$ of $$\eta_0$$ and $$V\subset\mathbb{R}^s$$ of $$\psi(\eta_0)$$ such that  $$\psi:U\rightarrow V$$ is a $$C^1$$ diffeomorphism with inverse $$\psi^{-1}$$.
+This time we know that $$\nabla_\eta A(\eta)$$ exists for all $$\eta \in \Xi^\circ$$ and that any solution to the likelihood equation in $$\Xi^\circ$$ is the unique maximiser of the log-likelihood $$\ell_n(\eta)$$. Let $$\psi:=\nabla A.$$ Minimality implies that the Jacobian matrix $$J_\psi(\eta_0) = \nabla^2_\eta A(\eta)|_{\eta=\eta_0}$$ is positive-definite, so $$J_\psi(\eta_0)$$ is non-singular. Then by the inverse function theorem there are open neighbourhoods $$\eta_0 \in \mathcal{O}_1 \subset\Xi^\circ$$ and $$\psi(\eta_0) \in \mathcal{O}_2$$ such that  $$\psi:\mathcal{O}_1\to\mathcal{O}_2$$ is continuously differentiable and invertible and its inverse $$\psi^{-1}:\mathcal{O}_2\to\mathcal{O}_1$$ is also continuously differentiable.
 <br>
 <br>
 
-Then conditional on the event $$E := \{\overline T_n\in V\}$$ define  
+Then for $$T_n\in \mathcal{O}_2$$ we have that  
 
 $$
-\hat\eta_n := \psi^{-1}(\overline T_n).
+\hat\eta_n = \psi^{-1}(\overline T_n).
 $$
 
-If $$\overline T_n\notin V$$, set $$\hat\eta_n$$ arbitrarily. From the multivariate CLT we have that
+If $$\overline T_n\notin \mathcal{O}_2$$, set $$\hat\eta_n$$ arbitrarily. From the multivariate CLT we have that
 
 $$
-\sqrt{n}\bigl(\overline T_n-\psi(\eta_0)\bigr)\xrightarrow{d}\mathcal{N}\!\bigl(0,\;\nabla^2 A(\eta_0)\bigr).
+\sqrt{n}\bigl(\overline T_n-\psi(\eta_0)\bigr)\xrightarrow{d}\mathcal{N}\!\bigl(0,\;\nabla^2_\eta A(\eta)|_{\eta=\eta_0}\bigr).
 $$
 
-Now conditional on $$E$$, $$\psi^{-1}$$ is differentiable at $$\eta_0$$ and we can apply the delta method. Since $$\nabla \psi^{-1}(\psi(\eta_0))=(\nabla \psi(\eta_0))^{-1} =(\nabla^2 A(\eta_0))^{-1}$$, we obtain  
+Since $$\psi^{-1}$$ is differentiable at $$\eta_0$$ and we can apply the delta method. Moreover, from multivariate calculus we have that $$J_{\psi^{-1}}(\psi(\eta_0))=(J_\psi(\eta_0))^{-1}$$. Combining these two facts implies that
 
 $$
-\sqrt{n}(\hat\eta_n-\eta_0)\xrightarrow{d}\mathcal{N}\!\bigl(0,\; (\nabla^2 A(\eta_0))^{-1}\bigr).
+\sqrt{n}(\psi^{-1}(\overline T_n)-\eta_0)\xrightarrow{d}\mathcal{N}\!\bigl(0,\; (J_\psi(\eta_0))^{-1}\bigr).
 $$
 
-Of course this is conditional on $$E$$. Computing the Fisher information matrix we find that $$I(\eta_0) = \mathbb{E}[-\nabla^2 \log p_{\eta_0}(x)] = \mathbb{E}[\nabla^2 A(\eta_0)] = \nabla^2 A(\eta_0)$$. So conditional on the event $$\{\overline T_n\in V\}$$,  $$\hat\eta_n$$ is asymptotically efficient.
+Computing the Fisher information matrix we find that $$I(\eta_0) = \mathbb{E}[-\nabla_\eta^2 \log p_{\eta}(x)|_{\eta=\eta_0}] = \mathbb{E}[\nabla_\eta^2 A(\eta)|_{\eta=\eta_0}] = J_\psi(\eta_0)$$. This would be enough to finish the proof if we always had $$\overline T_n \in \mathcal{O}_2$$. Instead we have something slightly weaker. Since $$\mathcal{O}_2$$ is an open neighborhood of $$\psi(\eta_0) = \mathbb{E}_{\eta_0}[T(X)]$$, the law of large numbers implies that $$\mathbb{P}(\overline T_n\in \mathcal{O}_2)\to1$$. 
 <br>
 <br>
 
-By the law of large numbers we have that $$\overline T_n\xrightarrow{p} \mathbb{E}_{\eta_0}[T(X)] = \psi(\eta_0)$$. Since $$V$$ is an open neighborhood of $$\psi(\eta_0)$$ we have that $$\mathbb{P}(E) = \mathbb{P}(\overline T_n\in V)\to1$$, implying that the convergence holds unconditionally. 
+To use this to finish the proof we let $$\mathbf{1}[A]$$ denotes the indicator of the event $$A$$. Since $$\mathbb{P}(\overline T_n\in \mathcal{O}_2)\to1$$ we have that,
+
+$$
+\mathbf{1}[\overline T_n\in \mathcal{O}_2] \xrightarrow{p} 1
+
+\,\,\text{ and }\,\,
+
+\sqrt{n}(\hat{\eta}_n-\eta_0) \mathbf{1}[\overline T_n \not\in \mathcal{O}_2] \xrightarrow{p} 0.
+$$
+
+Then the claim follows by applying Slutsky's to the following decomposition:
+
+$$
+\sqrt{n}(\hat{\eta}_n-\eta_0) = 
+\sqrt{n}(\psi^{-1}(\overline T_n)-\eta_0) \mathbf{1}[\overline T_n\in \mathcal{O}_2] + \sqrt{n}(\hat{\eta}_n-\eta_0) \mathbf{1}[\overline T_n \not\in \mathcal{O}_2].
+$$
 
 </div>
 
