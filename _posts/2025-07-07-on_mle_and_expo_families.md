@@ -365,7 +365,7 @@ $$
 \nabla_\eta A(\eta)=\overline T_n. 
 $$
 
-This time we know that $$\nabla_\eta A(\eta)$$ exists for all $$\eta \in \Xi^\circ$$ and that any solution to the likelihood equation in $$\Xi^\circ$$ is the unique maximiser of the log-likelihood $$\ell_n(\eta)$$. Let $$\psi(\eta) := \nabla_\eta A(\eta).$$ Minimality implies that the Jacobian matrix $$J_\psi(\eta_0) = \nabla^2_\eta A(\eta)|_{\eta=\eta_0} = \operatorname{Var}_{\eta_0}[T(X)]$$ is positive-definite, so $$J_\psi(\eta_0)$$ is non-singular. Then by the inverse function theorem there are open neighborhoods $$\eta_0 \in \mathcal{O}_1 \subset\Xi^\circ$$ and $$\psi(\eta_0) \in \mathcal{O}_2$$ such that  $$\psi:\mathcal{O}_1\to\mathcal{O}_2$$ is invertible and its inverse $$\psi^{-1}:\mathcal{O}_2\to\mathcal{O}_1$$ is also continuously differentiable.
+This time we know that $$\nabla_\eta A(\eta)$$ exists for all $$\eta \in \Xi^\circ$$ and that any solution to the likelihood equation in $$\Xi^\circ$$ is the unique maximiser of the log-likelihood $$\ell_n(\eta)$$. Let $$\psi(\eta) := \nabla_\eta A(\eta).$$ Minimality implies that the Jacobian matrix $$J_\psi(\eta_0) = \nabla^2_\eta A(\eta)|_{\eta=\eta_0} = \operatorname{Var}_{\eta_0}[T(X)]$$ is positive-definite, so $$J_\psi(\eta_0)$$ is non-singular. Then by the inverse function theorem there are open neighborhoods $$\eta_0 \in \mathcal{O}_1 \subset\Xi^\circ$$ and $$\psi(\eta_0) \in \mathcal{O}_2$$ such that  $$\psi:\mathcal{O}_1\to\mathcal{O}_2$$ is invertible and its inverse $$\psi^{-1}:\mathcal{O}_2\to\mathcal{O}_1$$ is continuously differentiable.
 <br>
 <br>
 
@@ -381,7 +381,7 @@ $$
 \sqrt{n}\bigl(\overline T_n-\psi(\eta_0)\bigr)\xrightarrow{d}\mathcal{N}\!\bigl(0,\;J_\psi(\eta_0)\bigr).
 $$
 
-Since $$\psi^{-1}$$ is differentiable at $$\psi(\eta_0)$$ and we can apply the delta method. Moreover, from multivariate calculus we have that $$J_{\psi^{-1}}(\psi(\eta_0))=(J_\psi(\eta_0))^{-1}$$. Combining these two facts implies that
+Since $$\psi^{-1}$$ is differentiable at $$\psi(\eta_0)$$ we can apply the delta method. Moreover, from multivariate calculus we have that $$J_{\psi^{-1}}(\psi(\eta_0))=(J_\psi(\eta_0))^{-1}$$. Combining these two facts implies that
 
 $$
 \sqrt{n}(\psi^{-1}(\overline T_n)-\eta_0)\xrightarrow{d}\mathcal{N}\!\bigl(0,\; (J_\psi(\eta_0))^{-1}\bigr).
