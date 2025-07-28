@@ -1,5 +1,5 @@
 ---
-title: 'Asymptotic Normality of the MLE for Exponential Families'
+title: 'On the Asymptotic Normality of the MLE for Exponential Families'
 date: 2025-07-07
 permalink: /posts/2025/07/on_mle_and_expo_families/
 tags:
