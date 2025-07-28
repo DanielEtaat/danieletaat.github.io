@@ -328,10 +328,10 @@ We now have almost all pieces we need to prove the following result.
 <div id="theorem-3" class="bbox" markdown="1">
 
 **Theorem 3:**
-Let $$\{P_\eta : \eta \in \Xi\}$$ be a minimal exponential family, and suppose $$\eta_0 \in \Xi^\circ$$. Let $$X_1, \dots, X_n \overset{\text{iid}}{\sim} P_{\eta_0}$$, and define the maximum-likelihood estimator $$\hat{\eta}_n$$ as any element of
+Let $$\{p_\eta : \eta \in \Xi\}$$ be a minimal exponential family, and suppose $$\eta_0 \in \Xi^\circ$$. Let $$X_1, \dots, X_n \overset{\text{iid}}{\sim} p_{\eta_0}$$, and define the maximum-likelihood estimator $$\hat{\eta}_n$$ as any element of
 
 $$
-\hat{\eta}_n \in \operatorname{argmax}_{\eta \in \Xi} \; \ell_n(\eta),
+\hat{\eta}_n \in \operatorname{argmax}_{\eta \in \Xi} \; \sum_{i=1}^n \log(p_\eta(X_i)),
 $$
 
 with $$\hat{\eta}_n$$ defined arbitrarily when the argmax is empty. Then, the MLE is asymptotically efficient:
@@ -407,6 +407,8 @@ $$
 \sqrt{n}(\hat{\eta}_n-\eta_0) = 
 \sqrt{n}(\psi^{-1}(\overline T_n)-\eta_0) \mathbf{1}[\overline T_n\in \mathcal{O}_2] + \sqrt{n}(\hat{\eta}_n-\eta_0) \mathbf{1}[\overline T_n \not\in \mathcal{O}_2].
 $$
+
+If you are especially astute you may have noticed that the expression $$\psi^{-1}(\overline T_n)$$ above is not well defined when $$\overline T_n \not\in \mathcal{O}_2$$. To resolve this we may extend $$\psi^{-1}$$ arbitrarily off of $$\mathcal{O}_2$$. For instance define $$\psi^{-1}(t) = 0$$ for all $$t \not\in \mathcal{O}_2$$. You should convince yourself that the proof goes through with this modification.
 
 </div>
 
