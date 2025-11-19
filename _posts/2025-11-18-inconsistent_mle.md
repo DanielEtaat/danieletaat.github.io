@@ -69,7 +69,7 @@ It turns out we cannot. My aim in this blog post will be to construct an example
 
 ## 1. The Setup
 
-Let’s build the counterexample. We will consider a one-parameter family of normal distributions, but with a twist: near zero the parameter controls the mean, and far from zero it controls the variance. Define the parameter space
+Let’s build the counterexample. We will start by considering a one-parameter family of normal distributions, but with a twist: near zero the parameter controls the mean, and far from zero it controls the variance. Define the parameter space
 
 $$
 \Theta = (-\infty, -2) \cup (-1, 1) \cup (2, \infty)
@@ -156,7 +156,7 @@ We will complete the rest of the construction in three steps:
    $$
    \mathbb P_{\theta_0}\bigl(\ell_n(\hat\theta_{1,n}) < \ell_n(\hat\theta_{2,n})\bigr)\to 0.5.
    $$
-2. Restrict the parameter space to a smaller open set $$\Theta_0\subset\Theta$$ that contains only $$\hat\theta_{1,n}$$ with high probability.
+2. Restrict the parameter space to a smaller open set $$\Theta_0\subset\Theta$$ that only contains one root (namely $$\hat\theta_{1,n}$$) with high probability.
 3. Show that on the restricted parameter space, the MLE falls outside of $$(-1, 1)$$ with probability not tending to $$0$$. This gives our counterexample.
 
 Let’s go through the first step.
@@ -285,16 +285,15 @@ Notice the following key properties of $$\Theta_0$$:
 
 * $$\Theta_0$$ is open.
 
-* $$\Theta_0$$ still contains $$(-1,1)$$, so a neighborhood of the true parameter, so it will contain $$\hat\theta_{1,n}$$ on $$A_n$$.
+* $$\Theta_0$$ still contains $$(-1,1)$$, a neighborhood of the true parameter, so it will contain $$\hat\theta_{1,n}$$ on $$A_n$$.
 
 * Its Lebesgue measure $$\lambda(\Theta_0)$$ is bounded, and therefore the tails become thinner and thinner in measure:
 
   $$
-  \lambda\bigl(\Theta_0\setminus(-M,M)\bigr)\ \downarrow\ 0
-  \quad\text{as } M\to\infty.
+  \lambda\bigl(\Theta_0\setminus(-M,M)\bigr)\ \downarrow\ 0 \ \text{ as } \ M\to\infty.
   $$
 
-Since on $$A_n$$, $$\hat\theta_{2,n} = (s_n^2-1)^{-1} \xrightarrow{p} \infty$$ and $$\mathbb P_{\theta_0}$$ is dominated by the Lebesgue measure, it is not hard to see that $$\mathbb P_{\theta_0}(B_n)\to 1$$ where 
+Since on $$A_n$$, $$\hat\theta_{2,n} \rightarrow \infty$$ and since $$\mathbb P_{\theta_0}$$ is dominated by the Lebesgue measure, it is not hard to see that $$\mathbb P_{\theta_0}(B_n)\to 1$$ where 
 
 $$
 B_n := \{\hat\theta_{2,n}\notin \Theta_0\} \cap A_n.
@@ -337,7 +336,7 @@ $$
 
 and so on this event there exists a parameter in $$\Theta_0$$ with larger likelihood than the unique root $$\hat\theta_{1,n}$$. Since the event $$\{\ell_n(\hat\theta_{2,n}) > \ell_n(\hat\theta_{1,n})\}$$ has asymptotic probability $$0.5$$, the same holds for the event above (actually this implies that the probability of the event above is asymptotically bounded below by $$0.5$$, it's a nice exercise to explain why it is bounded above by $$0.5$$ as well).
 
-From here we can actually conclude that the MLE will be inconsistent. Why? Because if the MLE does not equal $$\hat\theta_{1,n}$$ it must be outside of $$(-1, 1)$$. This is because $$\hat\theta_{1,n}$$ is the maximizer of likelihood on $$(-1, 1)$$. Then with probability not tending to $$0$$ we have that the MLE falls outside of $$(-1, 1)$$ and therefore that it is not consistent. 
+From here we can actually conclude that the MLE will be inconsistent. Why? Because if the MLE does not equal $$\hat\theta_{1,n}$$, it must be outside of $$(-1, 1)$$. This is because $$\hat\theta_{1,n}$$ is the maximizer of likelihood on $$(-1, 1)$$. Then with probability not tending to $$0$$ we have that the MLE falls outside of $$(-1, 1)$$ and therefore that it is not consistent. 
 
 This completes the construction. 
 
@@ -347,12 +346,12 @@ This completes the construction.
 
 Let’s summarize what this example actually shows.
 
-We started with a perfectly regular-looking one-dimensional model: common support, identifiability, smooth likelihood, and a natural-looking MLE. By gluing together a “mean branch” near zero and a “variance branch” far away, we engineered a situation in which the likelihood equation has two roots: one near the truth ($$\hat\theta_{1,n} = \bar X \to 0$$) and one that diverges ($$\hat\theta_{2,n}\sim \sqrt{n}$$). Step 1 showed that each of these two roots wins the likelihood battle about half the time. 
+We started with a perfectly regular-looking one-dimensional model: common support, identifiability, smooth likelihood, and a natural-looking MLE. By gluing together a “mean branch” near zero and a “variance branch” far away, we engineered a situation in which the likelihood equation has two roots: one near the truth ($$\hat\theta_{1,n} \to 0$$) and one that diverges ($$\hat\theta_{2,n}\sim \sqrt{n}$$). Step 1 showed that each of these two roots wins the likelihood battle about half the time. 
 
 Then we sparsified the parameter space, passing from $$\Theta$$ to $$\Theta_0$$ by sprinkling small intervals around rationals in the tails. This construction eliminates $$\hat\theta_{2,n}$$ from the parameter space with high probability, while keeping points arbitrarily close to it inside $$\Theta_0$$. As a result, on $$\Theta_0$$:
 
-* the likelihood equation has a unique root (at $$\hat\theta_{1,n}$$) with probability tending to 1, so Condition (A5) holds;
-* but with asymptotic probability $$1/2$$ there still exists some $$\theta\in\Theta_0$$ with strictly larger likelihood than $$\hat\theta_{1,n}$$, forcing the MLE to lie outside $$(-1,1)$$ and therefore to be inconsistent.
+* The likelihood equation has a unique root (at $$\hat\theta_{1,n}$$) with probability tending to 1, so Condition (A5) holds.
+* But with asymptotic probability $$0.5$$ there still exists some $$\theta\in\Theta_0$$ with strictly larger likelihood than $$\hat\theta_{1,n}$$, forcing the MLE to lie outside $$(-1,1)$$ and therefore to be inconsistent.
 
 In other words, on $$\Theta_0$$ Conditions (A2)–(A5) all hold, yet the MLE fails to converge to $$\theta_0$$.
 
