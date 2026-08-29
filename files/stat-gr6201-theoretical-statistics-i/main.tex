@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}   
+\usepackage{needspace}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz}
+\usepackage{mathrsfs}  % For \mathscr font
+\usepackage{bm}        % For bold math symbols
+\usepackage{graphicx}
+
+\graphicspath{ {./images/} }
+
+
+% Macros for common symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+
+% Macros for operators
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\cl}{cl}
+\DeclareRobustCommand{\rchi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[2]{\raisebox{\depth}{$#1\chi$}}
+\newcommand{\iid}{\overset{iid}{\sim}}
+
+% Theorem-like environments
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{STAT GR6201: Theoretical Statistics I}
+\author{Daniel Etaat \\ Instructor: Sumit Mukherjee}
+\date{Fall 2025}
+\hypersetup{
+	pdftitle={STAT GR6201: Theoretical Statistics I},
+	pdfauthor={Daniel Etaat},
+	pdfsubject={Lecture notes for STAT GR6201, Fall 2025}
+}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+\newpage 
+
+\input{lectures}
+
+\clearpage
+\addcontentsline{toc}{section}{References}
+\begin{thebibliography}{9}
+
+\bibitem{LehmannCasella1998}
+E.~L. Lehmann and G. Casella,
+\emph{Theory of Point Estimation},
+2nd ed., Springer Texts in Statistics,
+Springer-Verlag, New York, 1998.
+\url{https://doi.org/10.1007/b98854}.
+
+\bibitem{Berry1941}
+A.~C. Berry,
+The accuracy of the Gaussian approximation to the sum of independent variates,
+\emph{Transactions of the American Mathematical Society}
+\textbf{49} (1941), no.~1, 122--136.
+\url{https://doi.org/10.1090/S0002-9947-1941-0003498-3}.
+
+\bibitem{Esseen1942}
+C.-G. Esseen,
+On the Liapounoff limit of error in the theory of probability,
+\emph{Arkiv f\"or Matematik, Astronomi och Fysik}
+\textbf{28A} (1942), no.~9, 1--19.
+
+\bibitem{Polya1920}
+G. P\'olya,
+\"Uber den zentralen Grenzwertsatz der Wahrscheinlichkeitsrechnung
+und das Momentenproblem,
+\emph{Mathematische Zeitschrift}
+\textbf{8} (1920), nos.~3--4, 171--181.
+\url{https://doi.org/10.1007/BF01206525}.
+
+\end{thebibliography}
+
+\end{document}
