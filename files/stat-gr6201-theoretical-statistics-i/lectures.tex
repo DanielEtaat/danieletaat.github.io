@@ -1308,7 +1308,7 @@ Then any consistent sequence of roots $\hat \theta_n$ of $\ell_n'(\theta \mid X)
 \end{remark}
 
 \noindent Suppose you want to solve for $\theta$ such that $g(\theta) = 0$ given an initial guess $\theta_0$. Suppose $g(\theta_1) = 0$. Then \[
-	g(\theta_1) = 0 \approx g(\theta_0) + g'(\theta_0) (\theta_1 - \theta_0) \approx \theta_1 = \theta_0 - \frac{g(\theta_0)}{g'(\theta_0)}
+	g(\theta_1) = 0 \approx g(\theta_0) + g'(\theta_0) (\theta_1 - \theta_0) \implies \theta_1 \approx \theta_0 - \frac{g(\theta_0)}{g'(\theta_0)}
 \]
 This gives rise to the Newton-Raphson update step: $\theta_1 = \theta_0 - \frac{g(\theta_0)}{g'(\theta_0)}$.
 
