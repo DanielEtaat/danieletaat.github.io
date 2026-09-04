@@ -1,0 +1,10 @@
+<article class="publication-entry">
+  <div class="entry-index" aria-hidden="true">{{ include.index | prepend: '0' | slice: -2, 2 }}</div>
+  <div class="entry-body">
+    <p class="entry-kicker">{{ include.item.venue }} · {{ include.item.year }}</p>
+    <h2><a href="{{ include.item.url | relative_url }}">{{ include.item.title }}</a></h2>
+    <p class="entry-authors">{{ include.item.authors }}</p>
+    {% if include.item.description %}<p class="entry-description">{{ include.item.description }}</p>{% endif %}
+    <a class="text-link" href="{{ include.item.link }}">Project page <span aria-hidden="true">↗</span></a>
+  </div>
+</article>

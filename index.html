@@ -1,0 +1,59 @@
+---
+layout: default
+permalink: /
+description: "Daniel Etaat is a Statistics Ph.D. student at Columbia University working on machine learning, uncertainty, and high-dimensional statistics."
+redirect_from:
+  - /cv/
+  - /resume
+  - /cv-json/
+  - /resume-json
+  - /talks/
+  - /talks/2012-03-01-talk-1
+  - /talks/2013-03-01-tutorial-1
+  - /talks/2014-02-01-talk-2
+  - /talks/2014-03-01-talk-3
+  - /talkmap.html
+  - /talkmap/map.html
+  - /markdown/
+  - /md/
+  - /markdown.html
+  - /non-menu-page/
+  - /nmp/
+  - /nmp.html
+  - /terms/
+---
+<article class="profile-home">
+  <header class="profile-lead">
+    <figure><img src="{{ '/images/profile.webp' | relative_url }}" width="700" height="700" alt="Portrait of Daniel Etaat"></figure>
+    <div class="profile-lead-copy">
+      <h1>Hello, I’m Daniel.</h1>
+      <p class="profile-role">{{ site.data.profile.role }} · {{ site.data.profile.institution }}</p>
+      <p class="profile-intro">{{ site.data.profile.intro }}</p>
+      <nav class="profile-links" aria-label="Profile links">{% for link in site.data.profile.links limit:3 %}<a href="{{ link.url | escape }}">{{ link.label }} ↗</a>{% endfor %}</nav>
+    </div>
+  </header>
+
+  <section class="profile-section profile-about" id="about" aria-labelledby="about-title">
+    <h2 id="about-title">About</h2>
+    <div>{% for paragraph in site.data.profile.bio %}<p>{{ paragraph }}</p>{% endfor %}</div>
+  </section>
+
+  <section class="profile-section" aria-labelledby="research-title">
+    <header class="profile-section-head"><h2 id="research-title">Research</h2><a href="{{ '/publications/' | relative_url }}">All research</a></header>
+    {% for publication in site.publications reversed limit:1 %}
+    <article class="profile-publication"><p class="profile-year">{{ publication.year }}</p><div><p class="plain-meta">{{ publication.venue }}</p><h3><a href="{{ publication.url | relative_url }}">{{ publication.title }}</a></h3><p>{{ publication.description }}</p><p class="plain-byline">{{ publication.authors }}</p></div><div class="profile-actions"><a href="{{ publication.url | relative_url }}">Details →</a><a href="{{ publication.link }}">Project ↗</a></div></article>
+    {% endfor %}
+  </section>
+
+  <div class="profile-pair">
+    <section class="profile-section" aria-labelledby="writing-title">
+      <header class="profile-section-head"><h2 id="writing-title">Writing</h2><a href="{{ '/year-archive/' | relative_url }}">All notes</a></header>
+      <ol class="profile-notes">{% for post in site.posts limit:2 %}<li><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %Y' }}</time><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>{% endfor %}</ol>
+    </section>
+    <section class="profile-section" aria-labelledby="teaching-title">
+      {% assign resource = site.data.teaching.resources | first %}
+      <header class="profile-section-head"><h2 id="teaching-title">Teaching</h2><a href="{{ '/teaching/' | relative_url }}">Course record</a></header>
+      <article class="profile-teaching"><p class="plain-meta">{{ resource.code }} · Open notes</p><h3>{{ resource.title }}</h3><p>{{ resource.description }}</p><a href="{{ resource.links[0].url | relative_url }}">Read the notes ↗</a></article>
+    </section>
+  </div>
+</article>

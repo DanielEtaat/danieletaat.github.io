@@ -2,22 +2,10 @@
 title: 'On the Asymptotic Normality of the MLE for Exponential Families'
 date: 2025-07-07
 permalink: /posts/2025/07/on_mle_and_expo_families/
+description: "A self-contained route to asymptotic efficiency for the natural parameter of an exponential family."
 tags:
   - statistics
 ---
-
-<style>
-.bbox {
-  border: 1px solid black;
-  padding: 10px;
-  background: #fdfdfd; /* optional: subtly distinguishes proof box */
-}
-
-.bbox p {
-  margin-bottom: 0;
-}
-</style>
-
 
 While studying for an exam on statistical inference I became interested in the following question: **when is the maximum‑likelihood estimator (MLE) for the natural parameter of an exponential family asymptotically efficient?** After crawling through forums and textbooks I became certain that the answer was almost always. But I could not find a straightforward theorem or result to use. Or at least not one with a proof. So I set out to prove such a result for myself. The result of my toils is [Theorem 3](#theorem-3) below. Surprisingly, if you ask ChatGPT for a theorem on this topic it will give you one similar to Theorem 3. However, it cannot provide an accurate reference for it. So this theorem likely exists somewhere on the internet, I was just unable to find it.   
 
@@ -411,8 +399,6 @@ $$
 If you are especially astute you may have noticed that the expression $$\psi^{-1}(\overline T_n)$$ above is not well defined when $$\overline T_n \not\in \mathcal{O}_2$$. To resolve this we may extend $$\psi^{-1}$$ arbitrarily off of $$\mathcal{O}_2$$. For instance define $$\psi^{-1}(t) = 0$$ for all $$t \not\in \mathcal{O}_2$$. You should convince yourself that the proof goes through with this modification.
 
 </div>
-
-
 
 
 

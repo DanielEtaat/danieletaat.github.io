@@ -1,0 +1,14 @@
+---
+layout: default
+title: "Writing"
+permalink: /year-archive/
+redirect_from:
+  - /wordpress/blog-posts/
+  - /archive-layout-with-content/
+  - /categories/
+  - /collection-archive/
+  - /page-archive/
+  - /tags/
+description: "Long-form notes on statistical theory, maximum likelihood, and interesting counterexamples."
+---
+<article class="page-shell writing-page"><header class="page-heading"><p class="eyebrow">Notes and questions</p><h1>Writing</h1><p class="page-deck">Essays on statistical theory, likelihood, and useful counterexamples.</p></header><div class="post-list numbered-posts">{% for post in site.posts %}<div class="numbered-note"><span aria-hidden="true">{{ forloop.index | prepend: '0' }}</span>{% include post-entry.html post=post %}</div>{% endfor %}</div></article>

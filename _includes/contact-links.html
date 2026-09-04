@@ -1,0 +1,6 @@
+<ul class="contact-links" aria-label="Profiles and contact information">
+  {% for link in site.data.profile.links %}
+  <li><a href="{{ link.url | escape }}" rel="me">{{ link.label }}<span aria-hidden="true">↗</span></a></li>
+  {% endfor %}
+  <li><span class="contact-email">{{ site.data.profile.email }}</span></li>
+</ul>

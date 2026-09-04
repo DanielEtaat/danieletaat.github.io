@@ -1,0 +1,57 @@
+resources:
+  - code: "STAT GR6201"
+    title: "Theoretical Statistics I"
+    institution: "Columbia University"
+    description: "Lecture notes covering sufficiency and completeness, unbiased estimation, decision theory, asymptotics, the Bernstein–von Mises theorem, and hypothesis testing."
+    links:
+      - label: "Read the notes"
+        url: "/files/stat-gr6201-theoretical-statistics-i/inference-i-lecture-notes.pdf"
+      - label: "Download TeX source"
+        url: "/files/stat-gr6201-theoretical-statistics-i/inference-i-lecture-notes-source.zip"
+        download: true
+
+courses:
+  - code: "STAT GR5703"
+    title: "Statistical Inference and Modeling"
+    institution: "Columbia University"
+    role: "Teaching Assistant"
+    description: "Fundamentals of statistical inference and modeling, including the EM algorithm, MCMC and Bayesian modeling, linear and generalized linear models, nonparametric regression, and statistical computing."
+    terms:
+      - label: "Spring 2026"
+  - code: "STAT UN3105"
+    title: "Applied Statistical Methods"
+    institution: "Columbia University"
+    role: "Teaching Assistant"
+    description: "Practical statistical methods beyond linear regression and categorical data analysis."
+    terms:
+      - label: "Fall 2025"
+  - code: "MATH 54"
+    title: "Linear Algebra and Differential Equations"
+    institution: "UC Berkeley"
+    role: "Discussion Teaching Assistant"
+    description: "An introduction to the fundamental tools of linear algebra and differential equations used across a wide range of disciplines."
+    terms:
+      - label: "Spring 2023"
+        url: "https://classes.berkeley.edu/content/2023-spring-math-54-001-lec-001"
+      - label: "Fall 2023"
+        url: "https://classes.berkeley.edu/content/2023-fall-math-54-002-lec-002"
+      - label: "Spring 2024"
+        url: "https://classes.berkeley.edu/content/2024-spring-math-54-001-lec-001"
+      - label: "Summer 2024"
+        url: "https://classes.berkeley.edu/content/2024-summer-math-w54-001-wbl-001"
+      - label: "Fall 2024"
+        url: "https://classes.berkeley.edu/content/2024-fall-math-54-001-lec-001"
+  - code: "MATH 10A"
+    title: "Methods of Mathematics: Calculus, Statistics, and Combinatorics"
+    institution: "UC Berkeley"
+    role: "Discussion Teaching Assistant"
+    description: "The first course in a life-sciences mathematics sequence, covering single-variable calculus, ordinary differential equations, matrix algebra, and systems of linear equations."
+    terms:
+      - label: "Fall 2022"
+        url: "https://classes.berkeley.edu/content/2022-fall-math-10a-001-lec-001"
+
+award:
+  year: "2024"
+  title: "Outstanding Graduate Student Instructor Award"
+  institution: "UC Berkeley"
+  note: "Awarded annually to approximately 60 graduate instructors."

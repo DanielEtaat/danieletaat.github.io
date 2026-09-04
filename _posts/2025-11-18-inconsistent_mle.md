@@ -2,26 +2,14 @@
 title: 'A Nice Example of an Inconsistent MLE'
 date: 2025-11-18
 permalink: /posts/2025/11/inconsistent_mle/
+description: "A counterexample showing why a connected parameter space matters for a familiar MLE consistency result."
 tags:
   - statistics
 ---
 
-<style>
-.bbox {
-  border: 1px solid black;
-  padding: 10px;
-  background: #fdfdfd; /* optional: subtly distinguishes proof box */
-}
-
-.bbox p {
-  margin-bottom: 0;
-}
-</style>
-
-
 An important result from classical statistical theory is that the Maximum Likelihood Estimator (MLE) is consistent. In particular you will commonly come across results of the following form:
 
-<div id="theorem" class="bbox" markdown="1">
+<div id="consistency-template" class="bbox" markdown="1">
 
 **Theorem:**
 Let $$\{p_\theta : \theta \in \Theta\}$$ be a collection of probability densities. If the collection satisfies condition **________________________**, then the maximum-likelihood estimator $$\hat{\theta}_n$$ is consistent:
@@ -37,7 +25,7 @@ $$
 <br>
 You can fill in the blank with your favorite conditions. For example, Wald's proof of consistency would have you assume that $$\Theta$$ is compact and that the score function is dominated (among other things). The result I'm specifically interested in is the following: 
 
-<div id="theorem" class="bbox" markdown="1">
+<div id="interval-consistency-result" class="bbox" markdown="1">
 
 **Theorem:**
 Let $$\{p_\theta : \theta \in \Theta\}$$ be a collection of probability densities and $$X_1, \dots, X_n \overset{iid}{\sim} p_{\theta_0}$$ for some $$\theta_0 \in \Theta$$. If the collection satisfies:

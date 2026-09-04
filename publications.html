@@ -1,0 +1,11 @@
+---
+layout: default
+title: "Research"
+permalink: /publications/
+description: "Selected work across machine learning, vision, robotics, and statistical foundations."
+redirect_from:
+  - /portfolio/
+  - /portfolio/portfolio-1/
+  - /portfolio/portfolio-2/
+---
+<article class="page-shell research-page"><header class="page-heading"><p class="eyebrow">Selected work</p><h1>Research</h1><p class="page-deck">Statistical ideas for learning systems that are more understandable, reliable, and scalable.</p></header><div class="entry-list">{% for publication in site.publications reversed %}{% include publication-entry.html item=publication index=forloop.index %}{% endfor %}</div><p class="index-note">You can also find my work on <a href="{{ site.data.profile.links[0].url | escape }}">Google Scholar ↗</a>.</p></article>
