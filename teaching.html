@@ -4,4 +4,61 @@ title: "Teaching"
 permalink: /teaching/
 description: "Lecture notes and teaching experience at Columbia and UC Berkeley."
 ---
-<article class="page-shell teaching-page"><header class="page-heading"><p class="eyebrow">Courses and resources</p><h1>Teaching</h1><p class="page-deck">Lecture notes and teaching experience at Columbia and UC Berkeley.</p></header><section class="teaching-resource" aria-labelledby="resource-title"><p class="section-number">Open resource</p><h2 id="resource-title">Lecture notes</h2>{% for resource in site.data.teaching.resources %}<article class="resource-sheet"><div><p class="eyebrow">{{ resource.code }} · {{ resource.institution }}</p><h3>{{ resource.title }}</h3></div><p>{{ resource.description }}</p><div class="document-actions">{% for link in resource.links %}<a href="{{ link.url | relative_url }}"{% if link.download %} download{% endif %}>{{ link.label }} <span>{% if link.download %}↓{% else %}↗{% endif %}</span></a>{% endfor %}</div></article>{% endfor %}</section><section class="teaching-record" aria-labelledby="record-title"><p class="section-number">Appointments</p><h2 id="record-title">Course record</h2><div class="course-list">{% for course in site.data.teaching.courses %}<article class="course-entry"><p class="course-code">{{ course.code }}</p><div><h3>{{ course.title }}</h3><p>{{ course.role }} · {{ course.institution }}</p><p class="course-description">{{ course.description }}</p></div><ul>{% for term in course.terms %}<li>{% if term.url %}<a href="{{ term.url }}">{{ term.label }} ↗</a>{% else %}{{ term.label }}{% endif %}</li>{% endfor %}</ul></article>{% endfor %}</div></section><aside class="award-note"><p class="eyebrow">Recognition · {{ site.data.teaching.award.year }}</p><h2>{{ site.data.teaching.award.title }}</h2><p>{{ site.data.teaching.award.institution }} · {{ site.data.teaching.award.note }}</p></aside></article>
+<article class="page-shell teaching-page">
+  <header class="page-heading">
+    <p class="eyebrow">Courses and resources</p>
+    <h1>Teaching</h1>
+    <p class="page-deck">Lecture notes and teaching experience at Columbia and UC Berkeley.</p>
+  </header>
+
+  <section class="teaching-resource" aria-labelledby="resource-title">
+    <p class="section-number">Open resource</p>
+    <h2 id="resource-title">Lecture notes</h2>
+    {% for resource in site.data.teaching.resources %}
+    <article class="course-entry">
+      <p class="course-code">{{ resource.code }}</p>
+      <h3>{{ resource.title }}</h3>
+      <p>{{ resource.institution }}</p>
+      <p class="course-description">{{ resource.description }}</p>
+      <div class="document-actions">
+        {% for link in resource.links %}
+        <a href="{{ link.url | relative_url }}"{% if link.download %} download{% endif %}>{{ link.label }} <span aria-hidden="true">{% if link.download %}↓{% else %}↗{% endif %}</span></a>
+        {% endfor %}
+      </div>
+    </article>
+    {% endfor %}
+  </section>
+
+  <section class="teaching-record" aria-labelledby="record-title">
+    <p class="section-number">Teaching assistantships</p>
+    <h2 id="record-title">Courses I’ve TA’d for</h2>
+    <div class="course-list">
+      {% for course in site.data.teaching.courses %}
+      <article class="course-entry">
+        <p class="course-code">{{ course.code }}</p>
+        <div>
+          <h3>{{ course.title }}</h3>
+          <p>{{ course.role }} · {{ course.institution }}</p>
+          <p class="course-description">{{ course.description }}</p>
+        </div>
+        <ul>
+          {% for term in course.terms %}
+          <li>{% if term.url %}<a href="{{ term.url }}">{{ term.label }} ↗</a>{% else %}{{ term.label }}{% endif %}</li>
+          {% endfor %}
+        </ul>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="teaching-recognition" aria-labelledby="recognition-title">
+    <p class="section-number">Teaching award</p>
+    <h2 id="recognition-title">Recognition</h2>
+    <article class="course-entry">
+      <p class="course-code">{{ site.data.teaching.award.year }}</p>
+      <h3>{{ site.data.teaching.award.title }}</h3>
+      <p>{{ site.data.teaching.award.institution }}</p>
+      <p class="course-description">{{ site.data.teaching.award.note }}</p>
+    </article>
+  </section>
+</article>

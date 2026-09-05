@@ -52,9 +52,8 @@ body.plain-profile .publication-entry,
 body.plain-profile .numbered-note,
 body.plain-profile .course-entry { border: 0; border-top: 1px solid var(--line); }
 body.plain-profile .teaching-resource,
-body.plain-profile .teaching-record { border: 0; padding: 40px 0; }
-body.plain-profile .resource-sheet,
-body.plain-profile .award-note { border: 0; background: var(--profile-surface); color: var(--ink); }
+body.plain-profile .teaching-record,
+body.plain-profile .teaching-recognition { border: 0; padding: 40px 0; }
 body.plain-profile .publication-facts div,
 body.plain-profile .publication-facts div:last-child { border: 0; background: var(--profile-surface); margin-bottom: 2px; padding-inline: 16px; }
 body.plain-profile .article-margin,
@@ -74,10 +73,13 @@ body.plain-profile .prose .bbox { background: var(--profile-surface); color: var
   body.plain-profile .plain-footer,
   body.plain-profile.is-home #main-content { width: calc(100% - 32px); }
   .profile-home { padding: 42px 0 76px; }
-  .profile-lead { display: block; }
-  .profile-lead figure { width: 144px; height: 144px; margin-bottom: 24px; }
+  .profile-lead { display: block; text-align: center; }
+  .profile-lead figure { width: 144px; height: 144px; margin: 0 auto 24px; }
   .profile-lead h1 { font-size: 2rem; }
-  .profile-intro { font-size: 1.06rem; }
+  .profile-role > span { display: block; }
+  .profile-role .profile-role-divider { display: none; }
+  .profile-intro { margin-inline: auto; font-size: 1.06rem; }
+  .profile-links { justify-content: center; }
   .profile-section { padding-top: 52px; }
   .profile-about { display: block; }
   .profile-about h2 { margin-bottom: 20px; }

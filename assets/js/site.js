@@ -3,15 +3,26 @@
   var menu = document.querySelector('[data-menu]');
 
   if (menuButton && menu) {
+    var compactMenu = window.matchMedia('(max-width: 820px)');
+    var setMenuOpen = function (open) {
+      menuButton.setAttribute('aria-expanded', String(open));
+      menu.toggleAttribute('data-open', open);
+      menu.inert = compactMenu.matches && !open;
+    };
+    setMenuOpen(false);
     menuButton.addEventListener('click', function () {
       var open = menuButton.getAttribute('aria-expanded') === 'true';
-      menuButton.setAttribute('aria-expanded', String(!open));
-      menu.toggleAttribute('data-open', !open);
+      setMenuOpen(!open);
+    });
+    menu.addEventListener('click', function (event) {
+      if (event.target.closest('a')) setMenuOpen(false);
+    });
+    compactMenu.addEventListener('change', function () {
+      setMenuOpen(false);
     });
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
-        menuButton.setAttribute('aria-expanded', 'false');
-        menu.removeAttribute('data-open');
+        setMenuOpen(false);
         menuButton.focus();
       }
     });
@@ -31,6 +42,7 @@
 
   var themeButton = document.querySelector('[data-theme-toggle]');
   if (themeButton) {
+    var themeTransitionTimer;
     var themeColor = document.querySelector('meta[name="theme-color"]');
     var syncThemeColor = function () {
       if (!themeColor) return;
@@ -47,6 +59,13 @@
     themeButton.addEventListener('click', function () {
       var current = document.documentElement.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       var next = current === 'light' ? 'dark' : 'light';
+      window.clearTimeout(themeTransitionTimer);
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('theme-changing');
+        themeTransitionTimer = window.setTimeout(function () {
+          document.documentElement.classList.remove('theme-changing');
+        }, 450);
+      }
       document.documentElement.dataset.theme = next;
       try { localStorage.setItem('daniel-theme', next); } catch (error) {}
       themeButton.setAttribute('aria-label', 'Use ' + (next === 'light' ? 'dark' : 'light') + ' theme');

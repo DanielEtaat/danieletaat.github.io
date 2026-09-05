@@ -27,7 +27,7 @@ redirect_from:
     <figure><img src="{{ '/images/profile.webp' | relative_url }}" width="700" height="700" alt="Portrait of Daniel Etaat"></figure>
     <div class="profile-lead-copy">
       <h1>Hello, I’m Daniel.</h1>
-      <p class="profile-role">{{ site.data.profile.role }} · {{ site.data.profile.institution }}</p>
+      <p class="profile-role"><span>{{ site.data.profile.role }}</span><span class="profile-role-divider"> · </span><span>{{ site.data.profile.institution }}</span></p>
       <p class="profile-intro">{{ site.data.profile.intro }}</p>
       <nav class="profile-links" aria-label="Profile links">{% for link in site.data.profile.links limit:3 %}<a href="{{ link.url | escape }}">{{ link.label }} ↗</a>{% endfor %}</nav>
     </div>
@@ -47,12 +47,12 @@ redirect_from:
 
   <div class="profile-pair">
     <section class="profile-section" aria-labelledby="writing-title">
-      <header class="profile-section-head"><h2 id="writing-title">Writing</h2><a href="{{ '/year-archive/' | relative_url }}">All notes</a></header>
+      <header class="profile-section-head"><h2 id="writing-title">Writing</h2><a href="{{ '/year-archive/' | relative_url }}">All posts</a></header>
       <ol class="profile-notes">{% for post in site.posts limit:2 %}<li><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %Y' }}</time><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>{% endfor %}</ol>
     </section>
     <section class="profile-section" aria-labelledby="teaching-title">
       {% assign resource = site.data.teaching.resources | first %}
-      <header class="profile-section-head"><h2 id="teaching-title">Teaching</h2><a href="{{ '/teaching/' | relative_url }}">Course record</a></header>
+      <header class="profile-section-head"><h2 id="teaching-title">Teaching</h2><a href="{{ '/teaching/#record-title' | relative_url }}">Courses I’ve TA’d for</a></header>
       <article class="profile-teaching"><p class="plain-meta">{{ resource.code }} · Open notes</p><h3>{{ resource.title }}</h3><p>{{ resource.description }}</p><a href="{{ resource.links[0].url | relative_url }}">Read the notes ↗</a></article>
     </section>
   </div>

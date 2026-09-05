@@ -3,16 +3,23 @@
     <a href="{{ '/' | relative_url }}" aria-label="Daniel Etaat, home"><img src="{{ '/images/profile.webp' | relative_url }}" width="700" height="700" alt=""></a>
     <div><a class="plain-name" href="{{ '/' | relative_url }}">Daniel Etaat</a><p>Statistics · Columbia</p></div>
   </div>
-  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="plain-navigation" data-menu-toggle>Menu</button>
-  <nav class="plain-nav" id="plain-navigation" aria-label="Primary navigation" data-menu>
-    {% for item in site.data.navigation %}
-      {% assign current = false %}
-      {% if item.label == 'About' and page.url == '/' %}{% assign current = true %}{% endif %}
-      {% if page.url == item.url %}{% assign current = true %}{% endif %}
-      {% if page.collection == 'posts' and item.url == '/year-archive/' %}{% assign current = true %}{% endif %}
-      {% if page.collection == 'publications' and item.url == '/publications/' %}{% assign current = true %}{% endif %}
-      <a href="{{ item.url | relative_url }}"{% if current %} aria-current="page"{% endif %}>{{ item.label }}</a>
-    {% endfor %}
-  </nav>
-  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Use dark theme" aria-pressed="false">Theme</button>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="plain-navigation" data-menu-toggle><span class="menu-toggle-icon" aria-hidden="true"></span><span>Menu</span></button>
+  <div class="plain-navigation-panel" id="plain-navigation" data-menu>
+    <div class="plain-navigation-inner">
+      <nav class="plain-nav" aria-label="Primary navigation">
+        {% for item in site.data.navigation %}
+          {% assign current = false %}
+          {% if item.label == 'About' and page.url == '/' %}{% assign current = true %}{% endif %}
+          {% if page.url == item.url %}{% assign current = true %}{% endif %}
+          {% if page.collection == 'posts' and item.url == '/year-archive/' %}{% assign current = true %}{% endif %}
+          {% if page.collection == 'publications' and item.url == '/publications/' %}{% assign current = true %}{% endif %}
+          <a href="{{ item.url | relative_url }}"{% if current %} aria-current="page"{% endif %}>{{ item.label }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+  </div>
+  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Use dark theme" aria-pressed="false">
+    <svg class="theme-toggle-icon" width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M10 3a7 7 0 0 1 0 14Z" fill="currentColor"/></svg>
+    <span>Theme</span>
+  </button>
 </header>
