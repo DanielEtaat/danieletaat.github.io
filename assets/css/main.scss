@@ -147,6 +147,9 @@ button { color: inherit; font: inherit; }
 
 .reading-progress { position: fixed; z-index: 30; top: 0; left: 0; width: var(--reading-progress, 0%); height: 3px; background: var(--link); }
 .back-link { min-height: 44px; display: inline-flex; align-items: center; font-size: .82rem; }
+.article-shell { max-width: 68ch; margin-inline: auto; font-family: var(--serif); font-size: 1.08rem; }
+.article-header,
+.post-navigation { font-family: var(--sans); font-size: 17px; }
 .article-header { padding-bottom: 40px; border-bottom: 1px solid var(--line); }
 .article-header .eyebrow { margin-top: 18px; }
 .article-header h1 { font-size: clamp(2.4rem, 5vw, 3.5rem); }
@@ -231,6 +234,7 @@ button { color: inherit; font: inherit; }
   .plain-note-list li { grid-template-columns: 1fr; gap: 6px; }
   .publication-entry,
   .numbered-note { grid-template-columns: 30px minmax(0, 1fr); gap: 10px; }
+  .article-shell { font-size: 1.04rem; }
   .prose { font-size: 1.04rem; line-height: 1.75; }
   .post-navigation { grid-template-columns: 1fr; }
   .publication-facts div { grid-template-columns: 80px 1fr; gap: 12px; }
