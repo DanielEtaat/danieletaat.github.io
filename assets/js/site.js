@@ -74,29 +74,4 @@
     });
   }
 
-  var toc = document.querySelector('[data-toc]');
-  var article = document.querySelector('[data-article-body]');
-  if (toc && article) {
-    var headings = Array.prototype.slice.call(article.querySelectorAll('h2'));
-    if (!headings.length) {
-      toc.hidden = true;
-    } else {
-      var list = document.createElement('ol');
-      headings.forEach(function (heading) {
-        if (!heading.id) heading.id = heading.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-        var item = document.createElement('li');
-        var link = document.createElement('a');
-        link.href = '#' + heading.id;
-        link.textContent = heading.textContent;
-        item.appendChild(link);
-        list.appendChild(item);
-      });
-      toc.appendChild(list);
-    }
-  }
-
-  var responsiveToc = document.querySelector('[data-responsive-toc]');
-  if (responsiveToc && window.matchMedia('(max-width: 820px)').matches) {
-    responsiveToc.removeAttribute('open');
-  }
 })();
